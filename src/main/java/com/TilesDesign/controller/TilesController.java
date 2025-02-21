@@ -16,7 +16,7 @@ import com.TilesDesign.service.TilesService;
 
 @RestController
 @RequestMapping("/design")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class TilesController {
 	
 	@Autowired
