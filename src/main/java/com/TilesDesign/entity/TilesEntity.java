@@ -16,7 +16,7 @@ public class TilesEntity {
 	@Column(name = "user_password")
 	private String password;
 	@Column(name = "user_profile_img", columnDefinition = "LONGTEXT")
-	private String img = "../images/user.png";
+	private String img;
 	@Convert(converter = SavedImgArrayConverter.class)
     @Column(columnDefinition = "json")
     private List<Map<String, String>> savedImg;
