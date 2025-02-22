@@ -25,7 +25,7 @@ public class TilesConfig {
         http.csrf(csrf -> csrf.disable())
 		        .cors(cors -> cors.configurationSource(request -> {
 		            CorsConfiguration config = new CorsConfiguration();
-		            config.addAllowedOrigin("http://localhost:3000"); 
+		            config.addAllowedOrigin("https://v0-new-project-c8ek6vui4eo.vercel.app"); 
 		            config.addAllowedMethod("*");
 		            config.addAllowedHeader("*");
 		            config.setAllowCredentials(true);
