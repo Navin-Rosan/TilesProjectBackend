@@ -19,20 +19,28 @@ public class TilesConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	
-        http.csrf(csrf -> csrf.disable())
-		        .cors(cors -> cors.configurationSource(request -> {
-		            CorsConfiguration config = new CorsConfiguration();
-		            config.addAllowedOrigin("*"); 
-		            config.addAllowedMethod("*");
-		            config.addAllowedHeader("*");
-		            config.setAllowCredentials(true);
-		            return config;
-		        }))
-                .authorizeHttpRequests(requests -> requests
-                        .anyRequest().permitAll())
-                .formLogin(login -> login.disable());
-		
-		return http.build();
-	}
+        http
+            .csrf(csrf -> csrf.disable())
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .authorizeHttpRequests(requests -> requests
+                .requestMatchers("/design/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .formLogin(login -> login.disable());
+
+        return http.build();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOriginPattern("*"); // Allow all origins
+        configuration.addAllowedMethod("*");
+        configuration.addAllowedHeader("*");
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 }
