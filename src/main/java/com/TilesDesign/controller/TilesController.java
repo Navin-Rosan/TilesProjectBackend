@@ -95,5 +95,8 @@ public class TilesController {
 		return service.updatePassword(data);
 	}
 	
-	
+	@GetMapping("/test")
+	public ResponseEntity<String> testAPI() {
+	    return ResponseEntity.ok("GET request is working!");
+	}
 }
