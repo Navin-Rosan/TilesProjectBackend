@@ -30,8 +30,7 @@ public class TilesConfig {
 		            return config;
 		        }))
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/design/**").permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().permitAll())
                 .formLogin(login -> login.disable());
 		
 		return http.build();
