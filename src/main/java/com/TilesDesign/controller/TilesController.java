@@ -16,7 +16,7 @@ import com.TilesDesign.service.TilesService;
 
 @RestController
 @RequestMapping("/design")
-@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@CrossOrigin(origins = "https://v0-new-project-c8ek6vui4eo.vercel.app", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class TilesController {
 	
 	@Autowired
